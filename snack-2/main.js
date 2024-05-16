@@ -26,12 +26,20 @@ const squadre = [
         falliSubiti: 0
     },
 ];
-for(let i=0; i<=squadre.length; i++){
+const ul = document.getElementById("array-squadre");
+for(let i=0; i<squadre.length; i++){
     let squadreNome= squadre[i].nome;
     let nomeInvariato = squadreNome;
-    let numeroPuntiFatti= Math.floor(Math.random()* (100-40 +1)) ;
+    let numeroPuntiFatti= Math.floor(Math.random()* (100-40 +1));
+    let numeroFalliSubiti= Math.floor(Math.random()* (100-40 +1));
     squadre[i].nome=nomeInvariato;
     squadre[i].puntiFatti=numeroPuntiFatti;
-    squadre[i].falliSubiti=numeroPuntiFatti;
+    squadre[i].falliSubiti=numeroFalliSubiti;
+    let outputNomi = `${squadre[i].nome}, `;
+    // let outputPuntiFatti = `punti fatti: ${squadre[i].puntiFatti}, `;
+    let outputFalliSubiti = `falli subiti: ${squadre[i].falliSubiti};`;
+    let li = document.createElement("li")
+    ul.appendChild(li)
+    li.innerHTML += outputNomi + outputFalliSubiti;
 }
 console.log(squadre);
